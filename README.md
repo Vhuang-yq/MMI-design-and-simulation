@@ -13,7 +13,7 @@
 - 多端输出波导（Output Waveguides）
 - 功率与场分布监视器（Monitors）
 
-![Structure](./structure.png)
+![Structure](structure.png)
 
 ---
 
@@ -35,25 +35,25 @@
 
 ### 🔼 上端输出透射（T_up）
 
-![T_up](./T_up.png)
+![T_up](T_up.png)
 
 ---
 
 ### 🔽 下端输出透射（T_down）
 
-![T_down](./T_down.png)
+![T_down](T_down.png)
 
 ---
 
 ### ⚡ 中间区域透射（T_mid）
 
-![T_mid](./T_mid.png)
+![T_mid](T_mid.png)
 
 ---
 
 ### 🌈 电场分布（Electric Field Distribution）
 
-![光场](./E.png)
+![光场](E.png)
 
 ---
 
@@ -66,7 +66,7 @@
 - **采样点数**：99  
 - **监测指标**：透射率（T）
 
-![Sweep](./sweep.png)
+![Sweep](sweep.png)
 
 ---
 
