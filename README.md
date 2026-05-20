@@ -1,36 +1,37 @@
 # 📡 MMI 多模干涉波导仿真（varFDTD）
 
-本项目基于 Lumerical FDTD Solutions 中的 **varFDTD 求解器**，对 **多模干涉（MMI, Multimode Interference）波导结构**进行仿真分析，研究不同L_mmi下各输出端口的透射特性、电场分布。
+本项目基于 **Lumerical FDTD Solutions** 中的 *varFDTD 求解器*，对 **多模干涉（MMI, Multimode Interference）波导结构**进行数值仿真，系统分析 **MMI 区长度（L<sub>mmi</sub>）** 对输出端口透射特性及电磁场分布的影响规律。
 
 ---
 
+## 📐 器件结构（Device Structure）
 
-### 📐 结构组成
+仿真模型包含以下关键组成部分：
 
-该模型主要包括：
-
-- 输入单模波导
-- 多模干涉区（MMI区）
-- 输出分支波导
-- 多个监视器（monitor）用于数据采集
+- 单模输入波导（Input Waveguide）
+- 多模干涉区域（MMI Region）
+- 多端输出波导（Output Waveguides）
+- 功率与场分布监视器（Monitors）
 
 ![Structure](./structure.png)
 
 ---
 
-## ⚙️ 仿真设置
+## ⚙️ 仿真配置（Simulation Setup）
 
-- **求解器**：varFDTD  
-- **激励源**：模式光源（Mode Source）  
-- **监视器（Monitors）**：
-  - `T_up`：上输出端透射
-  - `T_mid`：中输出端透射
-  - `T_down`：下输出端透射  
-- **扫描参数**：L_mmi
+- **求解器（Solver）**：varFDTD  
+- **激励源（Source）**：模式光源（Mode Source）  
+- **工作波长（Wavelength）**：1550 nm  
+
+### 📡 监视器设置
+
+- `T_up`：上输出端透射率  
+- `T_mid`：中间输出端透射率  
+- `T_down`：下输出端透射率  
 
 ---
 
-## 📊 仿真结果
+## 📊 仿真结果（Results）
 
 ### 🔼 上端输出透射（T_up）
 
@@ -44,13 +45,13 @@
 
 ---
 
-### ⚡ 中间区域场分布（T_mid）
+### ⚡ 中间区域透射（T_mid）
 
 ![T_mid](./T_mid.png)
 
 ---
 
-### ⚡ 光场分布（E）
+### 🌈 电场分布（Electric Field Distribution）
 
 ![光场](./E.png)
 
@@ -58,41 +59,52 @@
 
 ## 🔁 参数扫描（Parameter Sweep）
 
-为了优化 MMI 结构性能，对 **MMI长度 L_mmi** 进行了扫描分析：
+为优化器件性能，对 MMI 区长度进行参数扫描分析：
 
-- 扫描参数：`L_mmi`
-- 范围：**10 μm ~ 40 μm**
-- 采样点数：**99**
-- 监测量：透射率 `T`
+- **扫描参数**：L<sub>mmi</sub>  
+- **扫描范围**：10 μm – 60 μm  
+- **采样点数**：99  
+- **监测指标**：透射率（T）
 
-![Sweep](./sweep_result.png)
+![Sweep](./sweep.png)
 
 ---
 
-## 🔍 扫参结果分析
+## 🔍 结果分析（Analysis）
 
-- 透射率随 MMI 长度呈现明显波动（干涉效应）
-- 存在多个局部峰值，对应不同自成像位置
-- 在某些长度（如约 **2.6e-5 m 附近**）透射率达到较高值（≈0.35）
+仿真结果表明：
+
+- 透射率随 L<sub>mmi</sub> 呈现明显的**周期性振荡特征**，反映出典型的多模干涉行为  
+- 存在多个局部极值点，对应不同阶的**自成像位置（Self-imaging positions）**  
+- 在约 **2.6 × 10⁻⁵ m** 处，透射率达到相对较高值（≈ 0.35）
 
 👉 说明：
 
-- MMI 器件具有典型的 **周期性自成像特性**
-- 结构长度对输出性能影响显著
-- 可通过优化 L_mmi 实现最大透射或均匀分束
+- MMI 器件具有明显的**长度敏感性**
+- 合适的 L<sub>mmi</sub> 可实现：
+  - 最大透射（Max transmission）
+  - 或均匀功率分束（Power splitting）
 
 ---
 
-## 🧠 物理解释
+## 🧠 物理机制（Physical Mechanism）
 
-MMI 工作基于：
+MMI 器件的工作原理基于：
 
-> 多模干涉 + 自成像效应（Self-imaging）
+> **多模干涉（Multimode Interference）与自成像效应（Self-imaging）**
 
-不同模式在传播过程中：
+在 MMI 区内：
 
-- 发生相位差累积
-- 在特定长度位置重新构建输入场分布
-- 形成输出端口的能量分配
+- 多个横向模式被激发并共同传播  
+- 各模式之间产生**相位差累积（Phase accumulation）**  
+- 在特定传播长度处形成**输入场的重构（Self-imaging）**  
+- 从而决定输出端口的功率分布  
 
 ---
+
+## 🚀 可扩展方向（Future Work）
+
+- 优化结构实现 **1×2 / 1×3 均分器设计**
+- 引入 **折射率调制** 提升器件性能
+- 结合 **优化算法（如 PSO / GA）** 自动搜索最优参数
+- 扩展至 **宽带响应分析**
