@@ -1,7 +1,29 @@
-# 📡 MMI 多模干涉波导仿真（varFDTD）
+# MMI Waveguide Simulation using varFDTD
 
-本项目基于 **Lumerical FDTD Solutions** 中的 *varFDTD 求解器*，对 **多模干涉（MMI, Multimode Interference）波导结构**进行数值仿真，系统分析 **MMI 区长度（L<sub>mmi</sub>）** 对输出端口透射特性及电磁场分布的影响规律。
+## 项目简介
 
+本项目使用 Ansys Lumerical varFDTD 对多模干涉器件（Multimode Interference, MMI）波导进行仿真。  
+通过改变 MMI 区域长度，分析不同输出端口的透射率变化和电场分布，从而研究 MMI 器件中的自成像效应。
+
+## 项目亮点
+
+- 使用 Lumerical varFDTD 建立 MMI 波导仿真模型
+- 对 MMI 区域长度进行参数扫描
+- 分析上、中、下三个输出端口的透射率变化
+- 可视化电场分布，观察光在 MMI 区域中的传播行为
+- 解释 MMI 波导中的多模干涉和自成像现象
+
+## 关键结果
+
+| 项目 | 内容 |
+|---|---|
+| 仿真软件 | Ansys Lumerical |
+| 求解器 | varFDTD |
+| 器件类型 | MMI 多模干涉波导 |
+| 扫描参数 | MMI 区域长度 |
+| 扫描范围 | 10 μm – 60 μm |
+| 分析内容 | 输出端口透射率、电场分布 |
+| 主要现象 | 透射率随 MMI 长度呈周期性变化 |
 ---
 
 ## 📐 器件结构（Device Structure）
