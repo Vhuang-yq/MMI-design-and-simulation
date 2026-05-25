@@ -35,7 +35,7 @@
 - 多端输出波导（Output Waveguides）
 - 功率与场分布监视器（Monitors）
 
-![Structure](stucture.png)
+![Structure](structure.png)
 
 ---
 
