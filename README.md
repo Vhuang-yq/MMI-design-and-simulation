@@ -101,7 +101,7 @@
 - **采样点数**：199  
 - **监测指标**：透射率（T）
 
-![Sweep](sweep.png)
+![Sweep](Sweep L_mmi.png)
 
 ---
 
